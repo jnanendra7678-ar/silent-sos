@@ -6,10 +6,10 @@ async function startServer() {
   try {
     await connectDatabase();
 
-    app.listen(env.PORT, () => {
-      console.log(
-        `SilentSOS backend running on http://localhost:${env.PORT}`
-      );
+    const port = Number(process.env.PORT ?? env.PORT);
+
+    app.listen(port, "0.0.0.0", () => {
+      console.log(`SilentSOS backend running on port ${port}`);
     });
   } catch (error) {
     console.error("Failed to start server:", error);
