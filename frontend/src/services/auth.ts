@@ -16,7 +16,8 @@ export interface AuthResponse {
 const TOKEN_KEY = "silent_sos_token";
 const USER_KEY = "silent_sos_user";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL =
+  import.meta.env.VITE_API_URL ?? "http://localhost:5000/api";
 
 async function request<T>(
   endpoint: string,
